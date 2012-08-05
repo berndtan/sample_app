@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	before_save { |user| user.email = user.email.downcase }
-	# before_save { |user| user.remember_token = "dafd" }
+	# before_save { |user| user.remember_token = "dafd" } // take private section out
 	before_save :create_remember_token
 
 	validates :name, 	:presence => true, :length => { :maximum => 50 }
